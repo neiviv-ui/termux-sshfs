@@ -1,3 +1,4 @@
+#!/data/data/com.termux/files/usr/bin/sh
 echo start
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
