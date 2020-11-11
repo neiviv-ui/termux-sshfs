@@ -1,5 +1,5 @@
 # termux-sshfs
 Compiler for sshfs in termux
-Requirement :\n
+Requirement :
 Rooted phone
 Termux (not legacy termux)
