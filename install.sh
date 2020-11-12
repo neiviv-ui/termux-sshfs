@@ -6,8 +6,15 @@ SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | 
 export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 #set the link to the lastest .tar.xz tarball at https://github.com/libfuse/sshfs/releases
 export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
-
-export SSHFS_FOLDER=$HOME/$SSHFS_VERSION
+if [ -e /data/data/com.termux/files/usr/bin/sshfs ];
+then
+if [ -d /data/data/com.termux/files/usr/bin/sshfs ];
+then
+rm -r /data/data/com.termux/files/usr/bin/sshfs/
+else
+echo 'Vérifier la version'
+fi
+fi
 pkg update -y
 pkg upgrade -y
 pkg install root-repo -y
