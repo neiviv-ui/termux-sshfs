@@ -37,7 +37,7 @@ then
 sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
 echo effectué
 else
-non fait
+echo non fait
 fi
 ninja
 cp ./sshfs $HOME/sshfs
