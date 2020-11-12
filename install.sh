@@ -13,7 +13,10 @@ then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs
 echo oui
 else
-echo 'Vérifier la version'
+SSHFS_SYSTEM_VERSION_FULL=$(/data/data/com.termux/files/usr/bin/sshfs -V)
+SSHFS_SYSTEM_VERSION_LITE=${SSHFS_SYSTEM_VERSION_FULL#*"SSHFS version "}
+SSHFS_SYSTEM_VERSION=${SSHFS_SYSTEM_VERSION_LITE%%F*}
+echo acutal version is $SSHFS_SYSTEM_VERSION
 fi
 fi
 pkg update -y
