@@ -3,7 +3,7 @@ echo start
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 #set the link to the lastest .tar.xz tarball at https://github.com/libfuse/sshfs/releases
-export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.0/sshfs-3.7.0.tar.xz"
+export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.1/sshfs-3.7.1.tar.xz"
 export SSHFS_FILE_TAR_XZ=$HOME/sshfs*.xz
 export SSHFS_FOLDER=$HOME/sshfs-*
 pkg update -y
