@@ -17,6 +17,13 @@ SSHFS_SYSTEM_VERSION_FULL=$(/data/data/com.termux/files/usr/bin/sshfs -V)
 SSHFS_SYSTEM_VERSION_LITE=${SSHFS_SYSTEM_VERSION_FULL#*"SSHFS version "}
 SSHFS_SYSTEM_VERSION=${SSHFS_SYSTEM_VERSION_LITE%%F*}
 echo acutal version is $SSHFS_SYSTEM_VERSION
+echo latest version is $SSHFS_VERSION
+if $SSHFS_SYSTEM_VERSION=$SSHFS_VERSION;
+then
+echo version récente
+else
+echo ancienne
+fi
 fi
 fi
 pkg update -y
