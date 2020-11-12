@@ -17,11 +17,16 @@ else
 SSHFS_SYSTEM_VERSION_FULL=$(/data/data/com.termux/files/usr/bin/sshfs -V)
 SSHFS_SYSTEM_VERSION_LITE=${SSHFS_SYSTEM_VERSION_FULL#*"SSHFS version "}
 SSHFS_SYSTEM_VERSION=${SSHFS_SYSTEM_VERSION_LITE%%F*}
-echo acutal version is $SSHFS_SYSTEM_VERSION
-echo latest version is $SSHFS_VERSION_LITE
 if [ $SSHFS_SYSTEM_VERSION = $SSHFS_VERSION_LITE ];
 then
-echo version récente
+while true; do
+read -p "Sshfs is already the newest version ($SSHFS_SYSTEM_VERSION), do you want to reinstall it ? [Y/n] " yn
+case $yn in
+[Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
+[Nn]* ) echo OK; exit;;
+* ) echo 'Please type correctly [Y] or [n]';;
+esac
+done
 else
 echo ancienne
 fi
