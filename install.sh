@@ -73,7 +73,7 @@ case $yn in
 [Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
 [Nn]* ) if [ -e /data/data/com.termux/files/usr/bin/sshfs ]; then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs
-fi; echo 'sshfs let at $HOME'; break;;
+fi; echo 'Sshfs let at $HOME'; break;;
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
