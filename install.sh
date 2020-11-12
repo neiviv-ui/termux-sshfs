@@ -30,6 +30,7 @@ ninja
 cp ./sshfs $HOME/sshfs
 cd $HOME
 rm -r $SSHFS_FOLDER
+if [ -x $HOME/sshfs ]; then
 while true; do
 read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
 case $yn in
@@ -38,4 +39,5 @@ case $yn in
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
+fi
 echo Finished!
