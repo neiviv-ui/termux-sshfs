@@ -6,7 +6,7 @@ SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | 
 export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 #set the link to the lastest .tar.xz tarball at https://github.com/libfuse/sshfs/releases
 export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
-export SSHFS_FILE_TAR_XZ=$HOME/$SSHFS_VERSION.tar.xz
+
 export SSHFS_FOLDER=$HOME/$SSHFS_VERSION
 pkg update -y
 pkg upgrade -y
@@ -18,9 +18,9 @@ pip install docutils
 cd $HOME
 rm -r $HOME/sshfs*
 wget -P $HOME $SSHFS_LINK
-tar -xf $SSHFS_FILE_TAR_XZ
-rm $SSHFS_FILE_TAR_XZ
-cd $SSHFS_FOLDER
+tar -xf $HOME/$SSHFS_VERSION.tar.xz
+rm $HOME/$SSHFS_VERSION.tar.xz
+cd $HOME/$SSHFS_VERSION
 mkdir ./build/
 cd ./build/
 meson ..
@@ -29,7 +29,7 @@ meson ..
 ninja
 cp ./sshfs $HOME/sshfs
 cd $HOME
-rm -r $SSHFS_FOLDER
+rm -r $HOME/$SSHFS_VERSION
 if [ -x $HOME/sshfs ]; then
 while true; do
 read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
