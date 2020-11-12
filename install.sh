@@ -34,6 +34,7 @@ meson ..
 if ! grep -q '#define LINE_MAX';
 then
 sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
+echo effectué
 fi
 ninja
 cp ./sshfs $HOME/sshfs
