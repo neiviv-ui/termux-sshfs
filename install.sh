@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/sh
-echo start
+echo Start
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
@@ -7,6 +7,7 @@ export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
 #set the link to the lastest .tar.xz tarball at https://github.com/libfuse/sshfs/releases
 export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
+#Check if sshfs is already installed
 if [ -e /data/data/com.termux/files/usr/bin/sshfs ];
 then
 if [ -d /data/data/com.termux/files/usr/bin/sshfs ] || ! [ -x /data/data/com.termux/files/usr/bin/sshfs ];
@@ -30,7 +31,7 @@ esac
 done
 else
 while true; do
-read -p "? [Y/n] " yn
+read -p "Sshfs is already installed with an old version ($SSHFS_SYSTEM_VERSION), do you want to upgrade to the newest ($SSHFS_VERSION_LITE) ? [Y/n] " yn
 case $yn in
 [Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
 [Nn]* ) echo OK; exit;;
@@ -40,6 +41,7 @@ done
 fi
 fi
 fi
+#Install sshfs by compiling it from source code
 pkg update -y
 pkg upgrade -y
 pkg install root-repo -y
