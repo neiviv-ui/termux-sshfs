@@ -8,9 +8,10 @@ export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
 if [ -e /data/data/com.termux/files/usr/bin/sshfs ];
 then
-if [ -d /data/data/com.termux/files/usr/bin/sshfs ];
+if [ -d /data/data/com.termux/files/usr/bin/sshfs ] || ! [ -x /data/data/com.termux/files/usr/bin/sshfs ];
 then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs/
+echo oui
 else
 echo 'Vérifier la version'
 fi
