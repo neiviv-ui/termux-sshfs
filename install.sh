@@ -36,4 +36,6 @@ case $yn in
 [Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; echo "sshfs moved to /data/data/com.termux/files/usr/bin/sshfs !"; break;;
 [Nn]* ) echo 'sshfs let at $HOME'; break;;
 * ) echo 'Please type correctly [Y] or [n]';;
+esac
+done
 echo Finished!
