@@ -31,7 +31,7 @@ cp ./sshfs $HOME/sshfs
 cd $HOME
 rm -r $SSHFS_FOLDER
 while true; do
-read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? "[Y/n] yn
+read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
 case $yn in
 [Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; echo "sshfs moved to /data/data/com.termux/files/usr/bin/sshfs !"; break;;
 [Nn]* ) echo 'sshfs let at $HOME'; break;;
