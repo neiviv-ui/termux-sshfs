@@ -40,4 +40,4 @@ case $yn in
 esac
 done
 fi
-echo Finished!
+echo Done.
