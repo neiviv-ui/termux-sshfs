@@ -10,7 +10,7 @@ if [ -e /data/data/com.termux/files/usr/bin/sshfs ];
 then
 if [ -d /data/data/com.termux/files/usr/bin/sshfs ];
 then
-rm -r /data/data/com.termux/files/usr/bin/sshfs/
+rm -r --force /data/data/com.termux/files/usr/bin/sshfs/
 else
 echo 'Vérifier la version'
 fi
