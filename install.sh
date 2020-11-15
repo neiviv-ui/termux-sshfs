@@ -87,4 +87,14 @@ case $yn in
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
+if [ -e /data/data/com.termux/files/usr/bin/sshfs-update ]
+then
+rm -r --force /data/data/com.termux/files/usr/bin/sshfs-update
+fi
+if ! [ -e $HOME/termux-sshfs ]
+then
+git clone https://github.com/neiviv-ui/termux-sshfs $HOME/termux-sshfs
+fi
+chmod +x $HOME/termux-sshfs/sshfs-update
+mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
 echo Done.
