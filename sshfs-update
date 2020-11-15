@@ -39,3 +39,6 @@ rm -r --force $HOME/termux-sshfs
 fi
 pkg install git -y
 git clone https://github.com/neiviv-ui/termux-sshfs $HOME/termux-sshfs
+cd $HOME/termux-sshfs
+chmod +x $HOME/termux-sshfs/update.sh
+$HOME/termux-sshfs/update.sh
