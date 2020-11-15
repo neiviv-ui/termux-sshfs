@@ -25,7 +25,7 @@ while true; do
 read -p "Sshfs is already the newest version ($SSHFS_SYSTEM_VERSION), do you want to reinstall it ? [Y/n] " yn
 case $yn in
 [Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
-[Nn]* ) echo OK; rm $PWD_INSTALL/install.sh; exit;;
+[Nn]* ) echo ; exit;;
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
@@ -34,7 +34,7 @@ while true; do
 read -p "Sshfs is already installed with an old version ($SSHFS_SYSTEM_VERSION), do you want to uptade to the newest ($SSHFS_VERSION_LITE) ? [Y/n] " yn
 case $yn in
 [Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
-[Nn]* ) echo OK; rm $PWD_INSTALL/install.sh; exit;;
+[Nn]* ) echo OK; exit;;
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
