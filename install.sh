@@ -80,4 +80,11 @@ esac
 done
 fi
 echo Done.
-rm $PWD_INSTALL/install.sh
+while true; do
+read -p "Do you want to remove install.sh ? [Y/n] " yn
+case $yn in
+[Yy]* ) rm $PWD_INSTALL/install.sh; break;;
+[Nn]* ) break;;
+* ) echo 'Please type correctly [Y] or [n]';;
+esac
+done
