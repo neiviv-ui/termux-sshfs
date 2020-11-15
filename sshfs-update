@@ -20,7 +20,7 @@ SSHFS_SYSTEM_VERSION_LINE_BREAK=${SSHFS_SYSTEM_VERSION_LITE%%F*}
 export SSHFS_SYSTEM_VERSION=$(echo "$SSHFS_SYSTEM_VERSION_LINE_BREAK" | tr -d '\n')
 if [ $SSHFS_SYSTEM_VERSION = $SSHFS_VERSION_LITE ];
 then
-echo "Sshfs is already installed with the newest version ($SSHFS_VERSION_LITE)."
+echo "Sshfs is already the newest version ($SSHFS_VERSION_LITE)."
 exit
 else
 while true; do
