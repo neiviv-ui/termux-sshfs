@@ -79,7 +79,6 @@ fi; echo 'Sshfs let at $HOME'; break;;
 esac
 done
 fi
-echo Done.
 while true; do
 read -p "Do you want to remove install.sh ? [Y/n] " yn
 case $yn in
@@ -88,3 +87,4 @@ case $yn in
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
+echo Done.
