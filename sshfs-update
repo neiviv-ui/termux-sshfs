@@ -9,3 +9,33 @@ then
 echo "Sshfs isn't properly installed on your device."
 exit
 fi
+export HOME=/data/data/com.termux/files/home
+export PATH=/data/data/com.termux/files/usr/bin/:$PATH
+SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
+export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
+export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
+SSHFS_SYSTEM_VERSION_FULL=$(/data/data/com.termux/files/usr/bin/sshfs -V)
+SSHFS_SYSTEM_VERSION_LITE=${SSHFS_SYSTEM_VERSION_FULL#*"SSHFS version "}
+SSHFS_SYSTEM_VERSION_LINE_BREAK=${SSHFS_SYSTEM_VERSION_LITE%%F*}
+export SSHFS_SYSTEM_VERSION=$(echo "$SSHFS_SYSTEM_VERSION_LINE_BREAK" | tr -d '\n')
+if [ $SSHFS_SYSTEM_VERSION = $SSHFS_VERSION_LITE ];
+then
+echo "Sshfs is already installed with the newest version ($SSHFS_VERSION_LITE)."
+exit
+else
+while true; do
+read -p "Sshfs is already installed with an old version ($SSHFS_SYSTEM_VERSION), do you want to updade to the newest ($SSHFS_VERSION_LITE) ? [Y/n] " yn
+case $yn in
+[Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
+[Nn]* ) echo OK; exit;;
+* ) echo 'Please type correctly [Y] or [n]';;
+esac
+done
+fi
+cd $HOME
+if [ -e $HOME/termux-sshfs ]
+then
+rm -r --force $HOME/termux-sshfs
+fi
+pkg install git -y
+git clone https://github.com/neiviv-ui/termux-sshfs $HOME/termux-sshfs
