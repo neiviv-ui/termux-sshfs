@@ -31,7 +31,7 @@ esac
 done
 else
 while true; do
-read -p "Sshfs is already installed with an old version ($SSHFS_SYSTEM_VERSION), do you want to upgrade to the newest ($SSHFS_VERSION_LITE) ? [Y/n] " yn
+read -p "Sshfs is already installed with an old version ($SSHFS_SYSTEM_VERSION), do you want to updade to the newest ($SSHFS_VERSION_LITE) ? [Y/n] " yn
 case $yn in
 [Yy]* ) rm -r --force /data/data/com.termux/files/usr/bin/sshfs; break;;
 [Nn]* ) echo OK; exit;;
