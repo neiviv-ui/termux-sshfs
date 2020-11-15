@@ -79,14 +79,6 @@ fi; echo 'Sshfs let at $HOME'; break;;
 esac
 done
 fi
-while true; do
-read -p "Do you want to remove install.sh ? [Y/n] " yn
-case $yn in
-[Yy]* ) rm $PWD_INSTALL/install.sh; break;;
-[Nn]* ) break;;
-* ) echo 'Please type correctly [Y] or [n]';;
-esac
-done
 if [ -e /data/data/com.termux/files/usr/bin/sshfs-update ]
 then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs-update
@@ -97,4 +89,5 @@ git clone https://github.com/neiviv-ui/termux-sshfs $HOME/termux-sshfs
 fi
 chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
+
 echo Done.
