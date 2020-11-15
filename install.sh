@@ -2,6 +2,7 @@
 echo Start
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
+PWD_INSTALL=$(pwd)
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
 export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
@@ -79,3 +80,4 @@ esac
 done
 fi
 echo Done.
+rm $PWD_INSTALL/install.sh
