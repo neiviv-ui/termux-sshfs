@@ -5,6 +5,7 @@ export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
 export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
+export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
 #Compiling sshfs newest version
 pkg update -y
 pkg upgrade -y
@@ -30,3 +31,9 @@ ninja
 cp ./sshfs $HOME/sshfs
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
+rm -r --force /data/data/com.termux.files/usr/bin/sshfs-update
+chmod +x $HOME/termux-sshfs/sshfs-update
+mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
+mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs
+rm -r --force $HOME/termux-sshfs
+echo Done.
