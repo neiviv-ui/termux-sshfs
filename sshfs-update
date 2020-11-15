@@ -1,0 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/sh
+if ! [ -e /data/data/com.termux/files/usr/bin/sshfs]
+then
+echo "Sshfs isn't installed on your device."
+exit
+fi
+if ! [ -x /data/data/com.termux/files/usr/bin/sshfs]
+then
+echo "Sshfs isn't properly installed on your device."
+exit
+fi
