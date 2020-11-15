@@ -2,7 +2,6 @@
 echo Start
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
-PWD_INSTALL=$(pwd)
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
 export SSHFS_VERSION=${SSHFS_VERSION_LINK##*/}
 export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
@@ -89,5 +88,5 @@ git clone https://github.com/neiviv-ui/termux-sshfs $HOME/termux-sshfs
 fi
 chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
-
+rm -r --force $HOME/termux-sshfs/
 echo Done.
