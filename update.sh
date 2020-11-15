@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/sh
 echo Start
+if ! [ -x /data/data/com.termux/files/usr/bin/sshfs-update ]
+then
+echo "You cannot run this script, it is another script who launch it"
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
@@ -28,12 +31,11 @@ then
 sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
 fi
 ninja
-cp ./sshfs $HOME/sshfs
+cp ./sshfs /data/data/com.termux/files/usr/bin/sshfs
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 rm -r --force /data/data/com.termux.files/usr/bin/sshfs-update
 chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
-mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs
 rm -r --force $HOME/termux-sshfs
 echo Done.
