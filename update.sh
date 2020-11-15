@@ -3,6 +3,7 @@ echo Start
 if ! [ -x /data/data/com.termux/files/usr/bin/sshfs-update ]
 then
 echo "You cannot run this script, it is another script who launch it"
+fi
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
