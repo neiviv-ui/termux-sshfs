@@ -14,7 +14,7 @@ export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VER
 pkg update -y
 pkg upgrade -y
 pkg install root-repo -y
-pkg install openssh python glib libfuse3 ninja wget coreutils tar sed -y
+pkg install openssh python glib libfuse3 ninja wget coreutils tar sed termux-elf-cleaner -y
 python -m pip install --upgrade pip
 pip install meson
 pip install docutils
