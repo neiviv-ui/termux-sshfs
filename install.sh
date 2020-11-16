@@ -75,7 +75,7 @@ case $yn in
 then
 /data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs &> /dev/null
 else
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs
+/data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs
 fi; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
 [Nn]* ) if [ -e /data/data/com.termux/files/usr/bin/sshfs ]; then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs
