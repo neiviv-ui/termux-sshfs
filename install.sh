@@ -96,5 +96,5 @@ mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-upd
 rm -r --force $HOME/termux-sshfs/
 echo "\nDone".
 else
-echo "There was/were error(s) during the installation of Sshfs"
+echo "\nThere was/were error(s) during the installation of Sshfs"
 fi
