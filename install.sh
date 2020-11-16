@@ -68,14 +68,6 @@ cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 if [ -x $HOME/sshfs ];
 then
-if [ -e /dev/null ]
-then
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs &> /dev/null
-else
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs
-fi
-fi
-if [ -x $HOME/sshfs ];
 while true; do
 read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
 case $yn in
