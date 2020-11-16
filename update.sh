@@ -43,8 +43,8 @@ chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs-temp
 rm -r --force $HOME/termux-sshfs
-echo Done.
+echo "\nDone".
 else
 mv /data/data/com.termux/files/usr/bin/sshfs-temp /data/data/com.termux/files/usr/bin/sshfs
-echo "There was/were error(s) during the update, Sshfs let at old version."
+echo "\nThere was/were error(s) during the update, Sshfs let at old version."
 fi
