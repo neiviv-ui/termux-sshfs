@@ -34,10 +34,6 @@ ninja
 if [ -x ./sshfs ]
 then
 cp ./sshfs /data/data/com.termux/files/usr/bin/sshfs
-if [ -e /dev/null ]
-then
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs &> /dev/null
-else
 /data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs
 fi
 cd $HOME
