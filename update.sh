@@ -32,11 +32,18 @@ then
 sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
 fi
 ninja
+if [ -x ./sshfs ]
+then
 cp ./sshfs /data/data/com.termux/files/usr/bin/sshfs
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 rm -r --force /data/data/com.termux.files/usr/bin/sshfs-update
 chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
+rm -r --force /data/data/com.termux/files/usr/bin/sshfs-temp
 rm -r --force $HOME/termux-sshfs
 echo Done.
+else
+mv /data/data/com.termux/files/usr/bin/sshfs-temp /data/data/com.termux/files/usr/bin/sshfs
+echo "There was/were error(s) during the update, Sshfs let at old version."
+fi
