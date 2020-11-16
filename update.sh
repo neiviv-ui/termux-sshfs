@@ -27,10 +27,10 @@ cd $HOME/$SSHFS_VERSION
 mkdir ./build/
 cd ./build/
 meson ..
-if ! grep -q '#define LINE_MAX' ../sshfs.c;
-then
-sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
-fi
+#if ! grep -q '#define LINE_MAX' ../sshfs.c;
+#then
+#sed -i '1s/^/#define LINE_MAX 4096\n\n/' ../sshfs.c
+#fi
 ninja
 if [ -x ./sshfs ]
 then
