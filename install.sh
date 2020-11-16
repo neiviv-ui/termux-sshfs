@@ -94,7 +94,7 @@ fi
 chmod +x $HOME/termux-sshfs/sshfs-update
 mv $HOME/termux-sshfs/sshfs-update /data/data/com.termux/files/usr/bin/sshfs-update
 rm -r --force $HOME/termux-sshfs/
-echo $"\nDone".
+echo "\nDone".
 else
 echo "There was/were error(s) during the installation of Sshfs"
 fi
