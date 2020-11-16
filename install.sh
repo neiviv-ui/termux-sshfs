@@ -73,7 +73,7 @@ read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs 
 case $yn in
 [Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; if [ -e /dev/null ]
 then
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs &> /dev/null
+/data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs &> /dev/null
 else
 /data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs
 fi; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
