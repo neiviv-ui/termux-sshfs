@@ -33,9 +33,8 @@ fi
 ninja
 if [ -x ./sshfs ]
 then
+data/data/com.termux/files/usr/bin/termux-elf-cleaner ./sshfs
 cp ./sshfs /data/data/com.termux/files/usr/bin/sshfs
-/data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs
-
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 rm -r --force /data/data/com.termux.files/usr/bin/sshfs-update
