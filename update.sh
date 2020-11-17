@@ -35,7 +35,7 @@ if [ -x ./sshfs ]
 then
 cp ./sshfs /data/data/com.termux/files/usr/bin/sshfs
 /data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs
-fi
+
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 rm -r --force /data/data/com.termux.files/usr/bin/sshfs-update
