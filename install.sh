@@ -70,7 +70,7 @@ if [ -x $HOME/sshfs ];
 /data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs
 then
 while true; do
-read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
+read -p "\nDo you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
 case $yn in
 [Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
 [Nn]* ) if [ -e /data/data/com.termux/files/usr/bin/sshfs ]; then
