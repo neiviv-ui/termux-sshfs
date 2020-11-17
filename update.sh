@@ -7,7 +7,8 @@ fi
 export HOME=/data/data/com.termux/files/home
 export PATH=/data/data/com.termux/files/usr/bin/:$PATH
 SSHFS_VERSION_LINK=$(curl -s https://github.com/libfuse/sshfs/releases/latest | cut -d'"' -f2 | cut -d'"' -f1)
-export SSHFS_VERSION=${SSHFS_VERSION_LINK##*export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
+export SSHFS_VERSION=${SSHFS_VERSION_LINK##*}
+export SSHFS_VERSION_LITE=${SSHFS_VERSION##*-}
 export SSHFS_LINK="https://github.com/libfuse/sshfs/releases/download/$SSHFS_VERSION/$SSHFS_VERSION.tar.xz"
 #Compiling sshfs newest version
 pkg update -y
