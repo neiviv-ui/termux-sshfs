@@ -67,14 +67,15 @@ cp ./sshfs $HOME/sshfs
 cd $HOME
 rm -r $HOME/$SSHFS_VERSION
 if [ -x $HOME/sshfs ];
+/data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs
 then
 while true; do
 read -p "Do you want to move sshfs to /data/data/com.termux/files/usr/bin/sshfs ? [Y/n] " yn
 case $yn in
-[Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; /data/data/com.termux/files/usr/bin/termux-elf-cleaner /data/data/com.termux/files/usr/bin/sshfs; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
+[Yy]* ) mv $HOME/sshfs /data/data/com.termux/files/usr/bin/sshfs; echo "Sshfs moved to /data/data/com.termux/files/usr/bin/sshfs."; break;;
 [Nn]* ) if [ -e /data/data/com.termux/files/usr/bin/sshfs ]; then
 rm -r --force /data/data/com.termux/files/usr/bin/sshfs
-fi; /data/data/com.termux/files/usr/bin/termux-elf-cleaner $HOME/sshfs; echo 'Sshfs let at $HOME'; break;;
+fi; echo 'Sshfs let at $HOME'; break;;
 * ) echo 'Please type correctly [Y] or [n]';;
 esac
 done
